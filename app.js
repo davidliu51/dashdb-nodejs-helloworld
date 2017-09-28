@@ -58,16 +58,17 @@ if ( hasConnect == false ) {
 
    db2 = {
         db: "BLUDB",
-        hostname: "xxxx",
+        hostname: "dashdb-entry-yp-dal09-07.services.dal.bluemix.net",
         port: 50000,
-        username: "xxx",
-        password: "xxx"
+        username: "dash100282",
+        password: "Z1__6gHlDjkY"
      };
 }
 
 var connString = "DRIVER={DB2};DATABASE=" + db2.db + ";UID=" + db2.username + ";PWD=" + db2.password + ";HOSTNAME=" + db2.hostname + ";port=" + db2.port;
 
 app.get('/', routes.listSysTables(ibmdb,connString));
+app.get('/tourismCloud', routes.listTourismTables(ibmdb,connString));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
